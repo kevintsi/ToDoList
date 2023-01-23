@@ -1,3 +1,5 @@
+import "./TodoItem.css"
+
 const TodoItem = ({ todo, id, setSelected, selected }) => {
 
     const handleCheckboxChange = () => {
@@ -8,14 +10,14 @@ const TodoItem = ({ todo, id, setSelected, selected }) => {
         }
     }
     return (
-        <div>
+        <li>
             <input
                 type="checkbox"
                 checked={selected.includes(id)}
                 onChange={handleCheckboxChange}
             />
-            <label>{todo}</label>
-        </div>
+            <label style={selected.includes(id) ? { textDecorationLine: "line-through", fontStyle: "italic" } : null}>{id + 1}. {todo}</label>
+        </li>
     )
 }
 
