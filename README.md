@@ -1,6 +1,6 @@
 # Mon mini-projet Todo list
 
-Le projet est disponible à cette adresse : https://kevintsi.github.io/todolist
+Le projet est disponible à cette adresse : https://kevintsi.github.io/TodoList
 
 # Getting Started with Create React App
 
