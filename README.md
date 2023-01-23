@@ -1,4 +1,4 @@
-# Todo list
+# Mon mini-projet Todo list
 
 Le projet est disponible à cette adresse : https://kevintsi.github.io/todolist
 
