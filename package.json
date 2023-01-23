@@ -1,5 +1,5 @@
 {
-  "name": "todo-liste",
+  "name": "todo-list",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -38,5 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://kevintsi.github.io/TodoListe"
+  "homepage": "https://kevintsi.github.io/todolist"
 }
