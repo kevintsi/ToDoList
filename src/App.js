@@ -7,9 +7,7 @@ function App() {
 
   const [todos, setTodos] = useState([])
   const [inputTodo, setInputTodo] = useState("")
-  const [selected, setSelected] = useState([])
-  const [width, setWidth] = useState(0)
-  const [color, setColor] = useState("")
+  const [barStyle, setBarStyle] = useState({})
 
   /**
    * 
@@ -50,14 +48,11 @@ function App() {
       todos.map((todo, idx) => {
         if (idx === id) {
           todo.isDone = !todo.isDone
-          return todo
-        } else {
-          return todo
         }
+        return todo
       })
     )
     localStorage.setItem("todos", JSON.stringify(todos))
-    setSelected(todos.filter((todo) => todo.isDone === true))
   }
 
   /**
@@ -65,21 +60,24 @@ function App() {
    * Met a jour la barre de progression
    */
   useEffect(() => {
-    setWidth(Math.round(selected.length / todos.length * 100)) // Change la taille de barre de progression (nombre de tache selectionné / total tache)
+    console.log("Update progress bar")
+    let selecteds = todos.filter((todo) => todo.isDone === true)
+    let width = Math.round(selecteds.length / todos.length * 100)// Change la taille de barre de progression (nombre de tache selectionné / total tache)
     if (width >= 70) { // Change la couleur en fonction de la width obtenue
-      setColor("#26C281")
+      setBarStyle({ "width": width, "color": "#26C281" })
     } else if (width > 40 && width < 70) {
-      setColor("#F2784B")
+      setBarStyle({ "width": width, "color": "#F2784B" })
     } else {
-      setColor("#D05454")
+      setBarStyle({ "width": width, "color": "#D05454" })
     }
-  }, [selected, todos.length, width])
+  }, [todos])
 
   /**
    * Executé lors du chargement des composants
    * Récupère les taches à faire et déjà faites
    */
   useEffect(() => {
+    console.log("Loading todos...")
     if (localStorage.getItem("todos") !== null) {
       setTodos(JSON.parse(localStorage.getItem("todos")))
     }
@@ -88,10 +86,7 @@ function App() {
   return (
     <div className="todo-list">
       <h1>Liste des choses à faire</h1>
-      <ProgressBar
-        width={width}
-        color={color}
-      />
+      <ProgressBar barStyle={barStyle} />
       <form onSubmit={_addTodo}>
         <input
           type="text"
