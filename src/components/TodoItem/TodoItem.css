@@ -3,6 +3,10 @@ input[type=checkbox]:checked {
         /* Change la couleur de la checkbox quand checké*/
 }
 
+input[type=checkbox] {
+    transform: scale(2);
+}
+
 ul {
     display: flex;
     flex-direction: column;
@@ -16,5 +20,39 @@ li {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    font-size: xx-large;
     color: #D05454;
+}
+
+@media screen and (max-width: 768px) {
+    li {
+        font-size: x-large;
+    }
+
+    input[type=checkbox] {
+        transform: scale(1);
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+    li {
+        font-size: large;
+    }
+
+    input[type=checkbox] {
+        transform: scale(1);
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    li {
+        font-size: medium;
+    }
+
+    input[type=checkbox] {
+        transform: scale(1);
+    }
+
 }

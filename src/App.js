@@ -85,7 +85,7 @@ function App() {
 
   return (
     <div className="todo-list">
-      <h1>Liste des choses à faire</h1>
+      <div className="title">Liste des choses à faire</div>
       <ProgressBar barStyle={barStyle} />
       <form onSubmit={_addTodo}>
         <input

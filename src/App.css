@@ -1,38 +1,38 @@
 .todo-list {
-  width: 500px;
+  width: 70%;
   margin: 0 auto;
 }
 
-.todo-list h1 {
+.title {
   text-align: center;
   color: #D05454;
+  margin: 10px;
+  font-size: 50px;
+  font-weight: bold;
 }
 
 .todo-list form {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  background-color: #f2f2f2;
 }
 
 .todo-list input {
   flex: 1;
-  padding: 10px;
+  padding: 1%;
   border: 1px solid #D05454;
   border-radius: 4px;
   margin-right: 10px;
 }
 
 .todo-list button[type="submit"] {
-  padding: 10px 20px;
+  padding: 1% 20px;
   background: #D05454;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
-
-
 
 .todo-list button {
   margin-left: 10px;
@@ -47,4 +47,22 @@
 h3 {
   color: #D05454;
   text-align: center
+}
+
+@media screen and (max-width:768px) {
+  .title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:320px) {
+  .title {
+    font-size: 17px;
+  }
 }

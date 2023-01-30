@@ -1,6 +1,21 @@
 .progress-bar-container {
-    height: 20px;
+    height: 30px;
     background-color: #E5E5E5;
     border-radius: 10px;
-    margin: 20px
+    margin-bottom: 20px
+}
+
+.progress-bar-container>div {
+    height: 30px
+}
+
+@media screen and (max-width: 768px) {
+    .progress-bar-container {
+        height: 20px;
+    }
+
+    .progress-bar-container>div {
+        height: 20px
+    }
+
 }
