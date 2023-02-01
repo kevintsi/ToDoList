@@ -1,6 +1,10 @@
 .todo-list {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
+}
+
+.container {
+  padding: 2%;
 }
 
 .title {
@@ -42,6 +46,11 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.list-container {
+  height: 63em;
+  overflow: scroll;
 }
 
 h3 {

@@ -7,7 +7,7 @@ function App() {
 
   const [todos, setTodos] = useState([])
   const [inputTodo, setInputTodo] = useState("")
-  const [barStyle, setBarStyle] = useState({})
+  const [barStyle, setBarStyle] = useState({ "width": 0, "color": "white" })
 
   /**
    * 
@@ -85,31 +85,33 @@ function App() {
 
   return (
     <div className="todo-list">
-      <div className="title">Liste des choses à faire</div>
       <ProgressBar barStyle={barStyle} />
-      <form onSubmit={_addTodo}>
-        <input
-          type="text"
-          value={inputTodo}
-          placeholder="Entrez une nouvelle tache"
-          onChange={(e) => setInputTodo(e.target.value)}
-        />
-        <button type="submit">Ajouter</button>
-      </form>
-      {todos.length > 0 ? (
-        <ul>
-          {
-            todos.map(
-              (todo, idx) => (
-                <TodoItem key={idx} todo={todo} id={idx} handleCheckboxChange={_handleCheckboxChange} />
-              )
-            )
+      <div className="container">
+        <form onSubmit={_addTodo}>
+          <input
+            type="text"
+            value={inputTodo}
+            placeholder="Entrez une nouvelle tache"
+            onChange={(e) => setInputTodo(e.target.value)}
+          />
+          <button type="submit">Ajouter</button>
+        </form>
+        <div className="list-container">
+          {todos.length > 0 ? (
+            <ul>
+              {
+                todos.map(
+                  (todo, idx) => (
+                    <TodoItem key={idx} todo={todo} id={idx} handleCheckboxChange={_handleCheckboxChange} />
+                  )
+                )
+              }
+            </ul>
+          ) :
+            <h3>Il n'y a aucune tache</h3>
           }
-        </ul>
-      ) :
-        <h3>Il n'y a aucune tache</h3>
-      }
-
+        </div>
+      </div>
     </div>
   );
 }

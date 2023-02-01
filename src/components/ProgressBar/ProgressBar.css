@@ -1,13 +1,11 @@
 .progress-bar-container {
     height: 35px;
-    border-radius: 20px;
     background-color: #E5E5E5;
-    margin-bottom: 20px
+    margin-bottom: 20px;
 }
 
 .progress-bar-container>div {
     height: 35px;
-    border-radius: 20px;
     text-align: "center";
     transition: width 0.5s;
 }
