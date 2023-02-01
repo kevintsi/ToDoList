@@ -2,6 +2,8 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import TodoItem from './components/TodoItem/TodoItem';
 import ProgressBar from './components/ProgressBar/ProgramBar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -15,7 +17,7 @@ function App() {
    * Executé lors d'un ajout d'une nouvelle tache
    * S'il y a dejà des taches, il l'ajoute à la liste sinon il créer la liste 
    */
-  const _addTodo = (e) => {
+  const _submit = (e) => {
     e.preventDefault()
     if (inputTodo.trim().length > 0) {
       let todo = {
@@ -33,7 +35,35 @@ function App() {
         localStorage.setItem("todos", JSON.stringify([todo]))
         setTodos(state => [...state, todo])
       }
+      toast.success('Tache ajoutée', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       setInputTodo("")
+    }
+  }
+
+  const _removeAll = (e) => {
+    e.preventDefault()
+    if (localStorage.getItem("todos") !== null) {
+      localStorage.removeItem("todos")
+      setTodos([])
+      toast.success('Reset effectuée', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   }
 
@@ -86,8 +116,9 @@ function App() {
   return (
     <div className="todo-list">
       <ProgressBar barStyle={barStyle} />
+      <ToastContainer />
       <div className="container">
-        <form onSubmit={_addTodo}>
+        <form onSubmit={_submit}>
           <input
             type="text"
             value={inputTodo}
@@ -95,6 +126,7 @@ function App() {
             onChange={(e) => setInputTodo(e.target.value)}
           />
           <button type="submit">Ajouter</button>
+          <button type="button" onClick={_removeAll}>Reset</button>
         </form>
         <div className="list-container">
           {todos.length > 0 ? (

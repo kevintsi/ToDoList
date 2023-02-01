@@ -7,18 +7,8 @@
   padding: 2%;
 }
 
-.title {
-  text-align: center;
-  color: #D05454;
-  margin: 10px;
-  font-size: 50px;
-  font-weight: bold;
-}
-
 .todo-list form {
   display: flex;
-  align-items: center;
-  margin-bottom: 20px;
 }
 
 .todo-list input {
@@ -27,20 +17,12 @@
   border: 1px solid #D05454;
   border-radius: 4px;
   margin-right: 10px;
-}
-
-.todo-list button[type="submit"] {
-  padding: 1% 20px;
-  background: #D05454;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  font-size: larger;
 }
 
 .todo-list button {
   margin-left: 10px;
-  padding: 5px 10px;
+  padding: 5px 7px;
   background: #D05454;
   color: white;
   border: none;
@@ -58,20 +40,8 @@ h3 {
   text-align: center
 }
 
-@media screen and (max-width:768px) {
-  .title {
-    font-size: 30px;
-  }
-}
-
-@media screen and (max-width:425px) {
-  .title {
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width:320px) {
-  .title {
-    font-size: 17px;
+@media screen and (max-width:375px) {
+  .todo-list input {
+    font-size: small;
   }
 }
