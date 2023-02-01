@@ -50,7 +50,7 @@
 
 .list-container {
   height: 63em;
-  overflow: scroll;
+  overflow: auto;
 }
 
 h3 {
