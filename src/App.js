@@ -134,21 +134,19 @@ function App() {
             <button type="button" onClick={_removeAll}>Reset</button>
           </form>
         </div>
-        <div className="list-container">
-          {todos.length > 0 ? (
-            <ul>
-              {
-                todos.map(
-                  (todo, idx) => (
-                    <TodoItem key={idx} todo={todo} id={idx} handleCheckboxChange={_handleCheckboxChange} />
-                  )
+        {todos.length > 0 ? (
+          <ul>
+            {
+              todos.map(
+                (todo, idx) => (
+                  <TodoItem key={idx} todo={todo} id={idx} handleCheckboxChange={_handleCheckboxChange} />
                 )
-              }
-            </ul>
-          ) :
-            <h3>Il n'y a aucune tache</h3>
-          }
-        </div>
+              )
+            }
+          </ul>
+        ) :
+          <h3>Il n'y a aucune tache</h3>
+        }
       </div>
     </div>
   );
