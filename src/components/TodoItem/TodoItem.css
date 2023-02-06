@@ -7,6 +7,26 @@ input[type=checkbox] {
     transform: scale(2);
 }
 
+input[type=text] {
+    color: #D05454;
+}
+
+.edit {
+    display: none;
+    cursor: pointer;
+}
+
+li:hover .edit {
+    display: flex;
+    justify-content: space-between;
+}
+
+svg {
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+
 ul {
     display: flex;
     flex-direction: column;

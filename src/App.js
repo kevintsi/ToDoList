@@ -48,6 +48,35 @@ function App() {
     }
   }
 
+  /**
+   * 
+   * @param {string} newTodo 
+   * @param {int} id
+   * 
+   * Executé lors d'une modification d'une tache 
+   */
+  const _update = (newTodo, id) => {
+    setTodos(
+      todos.map((todo, idx) => {
+        if (idx === id) {
+          todo.name = newTodo
+        }
+        return todo
+      })
+    )
+    toast.success('Tache modifiée avec succès', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }
+
   const _removeAll = (e) => {
     e.preventDefault()
     if (localStorage.getItem("todos") !== null) {
@@ -139,7 +168,7 @@ function App() {
             {
               todos.map(
                 (todo, idx) => (
-                  <TodoItem key={idx} todo={todo} id={idx} handleCheckboxChange={_handleCheckboxChange} />
+                  <TodoItem key={idx} todo={todo} id={idx} handleCheckboxChange={_handleCheckboxChange} update={_update} />
                 )
               )
             }
