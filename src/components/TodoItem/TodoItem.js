@@ -9,7 +9,7 @@ const TodoItem = ({ todo, id, handleCheckboxChange, update }) => {
 
     const handleClick = (e) => {
         setInputMode(!inputMode)
-        if (newTodo.trim().length > 0 && newTodo != todo.name) {
+        if (newTodo.trim().length > 0 && newTodo !== todo.name) {
             update(newTodo, id)
         }
     }
