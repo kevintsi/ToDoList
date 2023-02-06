@@ -32,8 +32,7 @@ ul {
     flex-direction: column;
     align-items: flex-start;
     list-style: none;
-    padding: 10px;
-    margin: 0;
+    padding: 0px 10px 0px 5px;
 }
 
 li {

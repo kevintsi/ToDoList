@@ -6,6 +6,7 @@ import "./TodoItem.css"
 const TodoItem = ({ todo, id, handleCheckboxChange, update }) => {
     const [inputMode, setInputMode] = useState(false)
     const [newTodo, setNewTodo] = useState(todo.name)
+    const todoStr = `${id + 1}.${todo.name}`
 
     const handleClick = (e) => {
         setInputMode(!inputMode)
@@ -23,7 +24,7 @@ const TodoItem = ({ todo, id, handleCheckboxChange, update }) => {
             {
                 inputMode ?
                     <input type="text" value={newTodo} onChange={e => setNewTodo(e.target.value)} /> :
-                    <label style={todo.isDone ? { textDecorationLine: "line-through", fontStyle: "italic" } : null}>{id + 1}. {todo.name}</label>
+                    <label style={todo.isDone ? { textDecorationLine: "line-through", fontStyle: "italic" } : null}>{todoStr}</label>
             }
 
 

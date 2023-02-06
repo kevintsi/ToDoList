@@ -147,36 +147,34 @@ function App() {
   }, [])
 
   return (
-    <div className="todo-list">
+    <div className="container">
       <ToastContainer />
-      <div className="container">
-        <div className="header">
-          <ProgressBar barStyle={barStyle} />
-          <form onSubmit={_submit}>
-            <input
-              type="text"
-              value={inputTodo}
-              placeholder="Entrez une nouvelle tache"
-              onChange={(e) => setInputTodo(e.target.value)}
-            />
-            <button type="submit">Ajouter</button>
-            <button type="button" onClick={_removeAll}>Reset</button>
-          </form>
-        </div>
-        {todos.length > 0 ? (
-          <ul>
-            {
-              todos.map(
-                (todo, idx) => (
-                  <TodoItem key={idx} todo={todo} id={idx} handleCheckboxChange={_handleCheckboxChange} update={_update} />
-                )
-              )
-            }
-          </ul>
-        ) :
-          <h3>Il n'y a aucune tache</h3>
-        }
+      <div className="header">
+        <ProgressBar barStyle={barStyle} />
+        <form onSubmit={_submit}>
+          <input
+            type="text"
+            value={inputTodo}
+            placeholder="Entrez une nouvelle tache"
+            onChange={(e) => setInputTodo(e.target.value)}
+          />
+          <button type="submit">Ajouter</button>
+          <button type="button" onClick={_removeAll}>Reset</button>
+        </form>
       </div>
+      {todos.length > 0 ? (
+        <ul>
+          {
+            todos.map(
+              (todo, idx) => (
+                <TodoItem key={idx} todo={todo} id={idx} handleCheckboxChange={_handleCheckboxChange} update={_update} />
+              )
+            )
+          }
+        </ul>
+      ) :
+        <h3>Il n'y a aucune tache</h3>
+      }
     </div>
   );
 }
